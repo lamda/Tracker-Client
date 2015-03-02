@@ -1138,11 +1138,6 @@ var WikiGame = function()
                     dialog_controller.text_dialog(message_package.message.title, message_package.message.text, null);
                     break;
                 }
-                case "session_complete":
-                {
-                    dialog_controller.text_dialog('Session Completed', "Thank you for participating", function(){game_controller.reset()});
-                    break;
-                }
 
                 default:
                 {
@@ -1403,7 +1398,7 @@ var WikiGame = function()
 //        Server_Connector("ws://129.27.12.44:8888/wikigame");
 		Event_Controller();
 
-        dialog_controller.text_dialog("Welcome", '[WELCOME] <br /> [INTRODUCTION TEXT] <br /> [DATA SECURITY STATEMENT]', game_controller.start);
+        dialog_controller.text_dialog("Welcome", 'Welcome! <br /> On the following page, you will be presented with 15 navigational tasks that we ask you to solve. Your paticipation is completeley voluntary and should take no more than 15 minutes. This research aims at better understanding navigational behavior on the Web and is conducted as part of the FWF project "Navigation in Networks" (P24866) at Graz University of Technology, Austria. <br /> The system used for this study will collect data on your navigation such as clicks and time spent on pages. All collected data will be treated anonymized, not shared with third parties and only used for research purposes. By continuing you agree to these terms.', game_controller.start);
 		//temporary start
 
         //temporary hint
