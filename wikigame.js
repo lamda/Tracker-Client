@@ -34,13 +34,13 @@ var WikiGame = function()
 
         var reset_frame = helper.create_object('div', ['debug_frame', 'close']);
 
-        var reset_text = helper.create_object('div', ['abort_text']);
+        //var reset_text = helper.create_object('div', ['abort_text']);
 
-        reset_text.appendChild(document.createTextNode("DEBUG RESET"));
-        reset_text.addEventListener('click', function(){debug.debug_reset();}, false);
-        reset_frame.appendChild(reset_text);
+        //reset_text.appendChild(document.createTextNode("DEBUG RESET"));
+        //reset_text.addEventListener('click', function(){debug.debug_reset();}, false);
+        //reset_frame.appendChild(reset_text);
 
-        document.body.appendChild(reset_frame);
+        //document.body.appendChild(reset_frame);
 
         debug = this;
     };
@@ -103,7 +103,12 @@ var WikiGame = function()
 
         this.reset = function()
         {
-            dialog_controller.text_dialog("Resetting", 'The system will now reset!', function(){localStorage.clear(); location.reload(true);})
+            dialog_controller.text_dialog("Resetting", 'The system will now reset!', function(){
+                localStorage.clear();
+                //location.reload(true);
+                window.location.href='done.html';
+                }
+            )
 
         };
 
@@ -1418,7 +1423,13 @@ var WikiGame = function()
 //        Server_Connector("ws://129.27.12.44:8888/wikigame");
 		Event_Controller();
 
-        dialog_controller.text_dialog("Welcome", 'Welcome! <br /> On the following page, you will be presented with 15 navigational tasks that we ask you to solve. Your paticipation is completeley voluntary and should take no more than 15 minutes. This research aims at better understanding navigational behavior on the Web and is conducted as part of the FWF project "Navigation in Networks" (P24866) at Graz University of Technology, Austria. <br /> The system used for this study will collect data on your navigation such as clicks and time spent on pages. All collected data will be treated anonymized, not shared with third parties and only used for research purposes. By continuing you agree to these terms.', game_controller.start);
+        dialog_controller.text_dialog("Welcome!", '<div style="text-align:left"> \
+Thank you for participating in this Wikipedia study! In this study, we try to understand navigational behavior on the Web.\
+<br /> <br />\
+We will first ask you to answer a question and complete a brief tutorial, followed by fifteen tasks. Your paticipation is completeley voluntary and should take no more than 15 minutes.\
+<br /> <br />\
+This study is conducted within the FWF project "Navigation in Networks" (P24866) at Graz University of Technology, Austria.The system used for this study will collect data on your navigation such as clicks and time spent on pages. All collected data will only used for research purposes, treated anonymized not shared with any third parties. By continuing, you agree to these terms.\
+</div>', game_controller.start);
 		//temporary start
 
         //temporary hint
