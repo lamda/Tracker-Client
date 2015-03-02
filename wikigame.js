@@ -103,13 +103,8 @@ var WikiGame = function()
 
         this.reset = function()
         {
-            dialog_controller.text_dialog("Resetting", 'The system will now reset!', function(){
-                localStorage.clear();
-                //location.reload(true);
-                window.location.href='done.html';
-                }
-            )
-
+            localStorage.clear();
+            window.location.href='done.html';
         };
 
         this.reset_menu = function()
