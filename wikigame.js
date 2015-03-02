@@ -1151,7 +1151,12 @@ var WikiGame = function()
                     dialog_controller.text_dialog(message_package.message.title, message_package.message.text, null);
                     break;
                 }
-
+                case "session_complete":
+                {
+                    game_controller.block(true);
+                    dialog_controller.text_dialog('Session Completed', "Thank you for participating", function(){game_controller.reset()});
+                    break;
+                }
                 default:
                 {
                     notification_controller.notify("default", "MESSAGE" + JSON.stringify(message_package));
