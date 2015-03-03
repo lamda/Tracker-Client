@@ -1421,7 +1421,7 @@ var WikiGame = function()
         dialog_controller.text_dialog("Welcome!", '<div style="text-align:left"> \
 Thank you for participating in this Wikipedia study! In this study, we try to understand navigational behavior on the Web.\
 <br /> <br />\
-We will first ask you to answer a question and complete a brief tutorial, followed by fifteen tasks. Your paticipation is completeley voluntary and should take no more than 15 minutes.\
+We will first ask you to answer a question and complete a brief tutorial, followed by a few tasks. Your paticipation is completeley voluntary and should take no more than 20 minutes.\
 <br /> <br />\
 This study is conducted within the FWF project "Navigation in Networks" (P24866) at Graz University of Technology, Austria.The system used for this study will collect data on your navigation such as clicks and time spent on pages. All collected data will only used for research purposes, treated anonymized not shared with any third parties. By continuing, you agree to these terms.\
 </div>', game_controller.start);
