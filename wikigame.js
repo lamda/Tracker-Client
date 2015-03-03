@@ -2,7 +2,7 @@
 // localStorage.clear();  //decomment for debugging purposes
 var WikiGame = function()
 {
-	var settings = {spam_interval:0, default_page:'wiki-schools/', css_files:["PAT_wikigame/wikigame.css"], websocket_url:"ws://127.0.0.1:8888/wikigame"};
+	var settings = {spam_interval:0, default_page:'wiki-schools/', css_files:["PAT_wikigame/wikigame.css"], websocket_url:"ws://127.0.0.1:63378/wikigame"};
 
 	var wikigame = this;
 	var wikiframe;
