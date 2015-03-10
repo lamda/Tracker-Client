@@ -620,14 +620,14 @@ var WikiGame = function()
         {
             var input_frame = helper.create_object('div', ['dialog_content']);
             var input_tooltip = helper.create_object('div', ['dialog_tooltip', 'dialog_tooltip_range']); document.createElement('div');
-            input_tooltip.appendChild(document.createTextNode("👎"));
-            input_tooltip.appendChild(document.createElement('br'));
-            input_tooltip.appendChild(document.createTextNode("(bad)"));
+            //input_tooltip.appendChild(document.createTextNode("👎"));
+            //input_tooltip.appendChild(document.createElement('br'));
+            input_tooltip.appendChild(document.createTextNode("very little experience"));
 
             var input_tooltip_right = helper.create_object('div', ['dialog_tooltip_range_hover_right']);
-            input_tooltip_right.appendChild(document.createTextNode("👍"));
-            input_tooltip_right.appendChild(document.createElement('br'));
-            input_tooltip_right.appendChild(document.createTextNode("(good)"));
+            //input_tooltip_right.appendChild(document.createTextNode("👍"));
+            //input_tooltip_right.appendChild(document.createElement('br'));
+            input_tooltip_right.appendChild(document.createTextNode("very proficient skills"));
             input_tooltip.appendChild(input_tooltip_right);
             input_frame.appendChild(input_tooltip);
             var input_field = helper.create_object('input', ['dialog_input'])

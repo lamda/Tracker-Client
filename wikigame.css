@@ -20,7 +20,7 @@ iframe.wikiframe
 	width:100%;
 	height:100%;
 	border:0;
-	
+
 	background-color:#FFFFFF;
 }
 
@@ -37,10 +37,10 @@ div.buttstrap
 	right: 0;
 	transform:translateY(-100%);
 	transition:all 250ms ease-in-out;
-	
+
 	box-shadow: 0 0 4px #212121;
 	border-bottom:1px #212121 solid;
-	
+
 	background: linear-gradient(180deg, rgba(200,200,200,0.95), rgba(128,128,128,0.95));
 }
 
@@ -59,9 +59,9 @@ div.buttstrap_label
 	text-align:center;
 	transform:translateY(100%) translateX(-50%);
 	cursor:pointer;
-	
+
 	background: linear-gradient(180deg, rgba(135,135,135,1), rgba(64,64,64,1));
-	
+
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	box-shadow: 0 4px 4px #212121;
@@ -161,7 +161,7 @@ div.dialog_frame
     box-shadow: 0 0 10px rgba(33,33,33,1);
     padding: 0;
     z-index: 999;
-    width: 30rem;
+    width: 40rem;
 }
 
 div.dialog_label
@@ -195,7 +195,7 @@ div.dialog_tooltip
 {
     position: relative;
     width: 100%;
-    font-size: 2rem;
+    font-size: 1rem;
     clear: both;
 }
 
@@ -391,11 +391,11 @@ div.notification
 	border-radius:0.3rem;
 */
 	overflow:hidden;
-	
+
 	opacity:0;
 -webkit-animation: notification_animation 5s ease-in-out;
 	animation: notification_animation 5s ease-in-out;
-	
+
 	box-shadow: 0 0 4px #212121;
 }
 
@@ -540,7 +540,7 @@ div.tutorial_arrow_position_lefttop:before
 .default
 {
 	background: linear-gradient(180deg, rgba(200,200,200,0.95), rgba(128,128,128,0.95));
-	
+
 	text-shadow: 1px 1px 0 rgba(200,200,200,1), -1px -1px 0 rgba(200,200,200,1), -1px 1px 0 rgba(200,200,200,1), 1px -1px 0 rgba(200,200,200,1);
 }
 
@@ -548,7 +548,7 @@ div.tutorial_arrow_position_lefttop:before
 .emphasis
 {
 	background: linear-gradient(180deg, rgba(128,200,128,0.95), rgba(64,128,64,0.95));
-	 
+
 	text-shadow: 1px 1px 0 rgba(128,200,128,1), -1px -1px 0 rgba(128,200,128,1), -1px 1px 0 rgba(128,200,128,1), 1px -1px 0 rgba(128,200,128,1);
 }
 
@@ -568,7 +568,7 @@ div.tutorial_arrow_position_lefttop:before
 .error
 {
 	background: linear-gradient(180deg, rgba(200,128,128,0.95), rgba(128,64,64,0.95));
-	
+
 	text-shadow: 1px 1px 0 rgba(200,128,128,1), -1px -1px 0 rgba(200,128,128,1), -1px 1px 0 rgba(200,128,128,1), 1px -1px 0 rgba(200,128,128,1);
 }
 
@@ -582,7 +582,7 @@ div.tutorial_arrow_position_lefttop:before
 .hint
 {
 	background: linear-gradient(180deg, rgba(128,128,200,0.95), rgba(64,64,128,0.95));
-	
+
 	text-shadow: 1px 1px 0 rgba(128,128,200,1), -1px -1px 0 rgba(128,128,200,1), -1px 1px 0 rgba(128,128,200,1), 1px -1px 0 rgba(128,128,200,1);
 }
 
