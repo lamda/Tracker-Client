@@ -199,6 +199,7 @@ var WikiGame = function()
 
             var buttstrap_arrow_goal = document.createElement('div');
             buttstrap_arrow_goal.classList.add('buttstrap_arrow');
+            buttstrap_arrow_goal.classList.add('buttstrap_arrow_post');
             buttstrap_arrow_goal.appendChild(goal_link);
             buttstrap_arrow_goal.style.backgroundColor = 'rgba(0, 200, 0, 1)';
             buttstrap_arrow_goal.style.textAlign = 'right';

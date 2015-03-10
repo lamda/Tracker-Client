@@ -44,6 +44,11 @@ div.buttstrap
 	background: linear-gradient(180deg, rgba(200,200,200,0.95), rgba(128,128,128,0.95));
 }
 
+#buttstrap_distance_1, #buttstrap_distance_2
+{
+    visibility: hidden;
+}
+
 div.buttstrap_open
 {
 	transform:translateY(0%);
@@ -65,7 +70,7 @@ div.buttstrap_label
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	box-shadow: 0 4px 4px #212121;
-
+    visibility: hidden;
 }
 
 div.buttstrap_label:hover
@@ -96,6 +101,7 @@ div.buttstrap_arrow
     overflow: visible;
     padding-left: 2rem;
     padding-right: 2rem;
+    margin-right: 2rem;
     display: inline-block;
     flex: 1;
     text-decoration: none !important;
@@ -105,18 +111,18 @@ div.buttstrap_arrow
 
 div.buttstrap_arrow_active
 {
-    box-shadow: 0 0 4px 8px #F8F8F8;
+    /*box-shadow: 0 0 4px 8px #F8F8F8;*/
 }
 
 div.buttstrap_arrow_active:after
 {
-    box-shadow: 6px -6px 3px 4px #F8F8F8 !important;
+    /*box-shadow: 6px -6px 3px 4px #F8F8F8 !important;*/
 }
 
 div.buttstrap_arrow_post:after
 {
     position: absolute;
-    right: -0.6rem;
+    right: 0.6rem;
     top:50%;
 
     height: 1rem;
@@ -127,7 +133,8 @@ div.buttstrap_arrow_post:after
     border-bottom: none;
     border-left: none;
     transform: translateY(-50%)  rotate(45deg);
-    box-shadow: 2px -2px 2px #212121;
+    margin-right: -1.25rem;
+    /*box-shadow: 1px -2px 2px #212121;*/
 }
 
 
