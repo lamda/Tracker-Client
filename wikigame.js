@@ -88,8 +88,30 @@ var WikiGame = function()
 		var mouse = {position:{x:0,y:0},buttons_pressed:{left:false,middle:false,right:false}};
         var viewport = {size:{x:0,y:0}, scroll:{x:0,y:0}, scrollsize:{x:0, y:0}};
         var keys = [];
+        var abort_button = null;
 
         var block_broadcast = false;
+
+        this.attach_abort = function()
+        {
+            if(abort_button != null)
+            {
+                document.body.removeChild(abort_button);
+            }
+            var abort_frame = document.createElement('div');
+            abort_frame.classList.add('abort_frame');
+            abort_frame.classList.add("close");
+
+            var abort_text = document.createElement('div');
+            abort_text.classList.add('abort_text');
+            abort_text.appendChild(document.createTextNode("Abort Task"));
+            abort_text.addEventListener('click', function(){game_controller.abort_game(false);}, false);
+            abort_frame.appendChild(abort_text);
+
+            document.body.appendChild(abort_frame);
+
+            abort_button = abort_frame;
+        };
 
         this.block = function(_state)
         {
@@ -187,6 +209,7 @@ var WikiGame = function()
 
 
             buttstrap.open();
+            game_controller.attach_abort();
         };
 
 		this.set_current_page = function(_url)
@@ -264,19 +287,6 @@ var WikiGame = function()
 		this.start = function()
 		{
             server_connector.send_message('start', null,false);
-
-            var abort_frame = document.createElement('div');
-            abort_frame.classList.add('abort_frame');
-            abort_frame.classList.add("close");
-
-            var abort_text = document.createElement('div');
-            abort_text.classList.add('abort_text');
-            abort_text.appendChild(document.createTextNode("Abort Task"));
-            abort_text.addEventListener('click', function(){game_controller.abort_game(false);}, false);
-            abort_frame.appendChild(abort_text);
-
-            document.body.appendChild(abort_frame);
-
 		};
 
 		this.pause = function()
@@ -608,23 +618,19 @@ var WikiGame = function()
 
         var dialog_input_range = function(_from, _to)
         {
-            var input_frame = document.createElement('div');
-            input_frame.classList.add("dialog_content");
-            var input_tooltip = document.createElement('div');
-            input_tooltip.classList.add('dialog_tooltip');
-            input_tooltip.classList.add('dialog_tooltip_range');
-            input_tooltip.appendChild(document.createTextNode("😕"));
+            var input_frame = helper.create_object('div', ['dialog_content']);
+            var input_tooltip = helper.create_object('div', ['dialog_tooltip', 'dialog_tooltip_range']); document.createElement('div');
+            input_tooltip.appendChild(document.createTextNode("👎"));
             input_tooltip.appendChild(document.createElement('br'));
             input_tooltip.appendChild(document.createTextNode("(bad)"));
 
-            var input_tooltip_right = document.createElement('span');
-            input_tooltip_right.style = "position:absolute; right: 0; top:0; text-align:right;";
-            input_tooltip_right.appendChild(document.createTextNode("😀"));
+            var input_tooltip_right = helper.create_object('div', ['dialog_tooltip_range_hover_right']);
+            input_tooltip_right.appendChild(document.createTextNode("👍"));
             input_tooltip_right.appendChild(document.createElement('br'));
             input_tooltip_right.appendChild(document.createTextNode("(good)"));
             input_tooltip.appendChild(input_tooltip_right);
             input_frame.appendChild(input_tooltip);
-            var input_field = document.createElement('input');
+            var input_field = helper.create_object('input', ['dialog_input'])
             input_field.classList.add("dialog_input");
             input_field.type = "range";
             input_field.min = _from;
@@ -1099,6 +1105,7 @@ var WikiGame = function()
                     var session_id = false;
                     if (localStorage.getItem("session_id") !== null)
                     {
+                        console.log("Found Session!");
                         session_id = localStorage.getItem("session_id");
                     }
                     server_connector.send_message("session_response", session_id, false);
@@ -1193,7 +1200,7 @@ var WikiGame = function()
 			socket = new WebSocket(server_address);
 
 			socket.addEventListener('message',function(){return function(_event){message_handler.handle_message(_event.data);}}());
-			socket.addEventListener('open',function(){if(crashed){game_controller.start()}; flush_queue(); notification_controller.notify("emphasis","Server connection established!");},false);
+			socket.addEventListener('open',function(){console.log("crashed_state: " + crashed); if(crashed){game_controller.start()} flush_queue(); notification_controller.notify("emphasis","Server connection established!");},false);
 			socket.addEventListener('close',function(){crashed = true; socket = null; setTimeout(create_socket, 5000); notification_controller.notify("error","Server connection terminated!");},false);
 		};
 
@@ -1205,9 +1212,23 @@ var WikiGame = function()
 
         var flush_queue = function()
         {
-            while(message_queue.length != 0)
+            if(socket == null)
             {
-                socket.send(message_queue.shift());
+                console.log("Trying to flush with socket state: NULL");
+                return;
+            }
+
+            console.log("Trying to flush with socket state: " + socket.readyState);
+            if(socket.readyState != 1)
+            {
+                setTimeout(flush_queue, 3000);
+            }
+            else
+            {
+                while (message_queue.length != 0)
+                {
+                    socket.send(message_queue.shift());
+                }
             }
         };
 		create_socket();
