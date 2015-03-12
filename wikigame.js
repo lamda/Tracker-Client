@@ -200,6 +200,7 @@ var WikiGame = function()
             var buttstrap_arrow_goal = document.createElement('div');
             buttstrap_arrow_goal.classList.add('buttstrap_arrow');
             buttstrap_arrow_goal.classList.add('buttstrap_arrow_post');
+            buttstrap_arrow_goal.classList.add('buttstrap_arrow_last');
             buttstrap_arrow_goal.appendChild(goal_link);
             buttstrap_arrow_goal.style.backgroundColor = 'rgba(0, 200, 0, 1)';
             buttstrap_arrow_goal.style.textAlign = 'right';
@@ -621,12 +622,12 @@ var WikiGame = function()
         {
             var input_frame = helper.create_object('div', ['dialog_content']);
             var input_tooltip = helper.create_object('div', ['dialog_tooltip', 'dialog_tooltip_range']); document.createElement('div');
-            //input_tooltip.appendChild(document.createTextNode("👎"));
+            //input_tooltip.appendChild(document.createTextNode("ðŸ‘Ž"));
             //input_tooltip.appendChild(document.createElement('br'));
             input_tooltip.appendChild(document.createTextNode("very little experience"));
 
             var input_tooltip_right = helper.create_object('div', ['dialog_tooltip_range_hover_right']);
-            //input_tooltip_right.appendChild(document.createTextNode("👍"));
+            //input_tooltip_right.appendChild(document.createTextNode("ðŸ‘"));
             //input_tooltip_right.appendChild(document.createElement('br'));
             input_tooltip_right.appendChild(document.createTextNode("very proficient skills"));
             input_tooltip.appendChild(input_tooltip_right);
@@ -848,7 +849,7 @@ var WikiGame = function()
             var hint_close = document.createElement('div');
             hint_close.classList.add('hint_close');
             hint_close.classList.add('close');
-            hint_close.appendChild(document.createTextNode('×'));
+            hint_close.appendChild(document.createTextNode('Ã—'));
             hint_close.addEventListener('click', function(){hint_remove(hint_frame);}, false);
 
             hint_frame.appendChild(hint_text);
@@ -1330,14 +1331,14 @@ var WikiGame = function()
 			{
 //				console.log("closing");
 				frame.classList.remove('buttstrap_open');
-				label.innerHTML = "▼";
+				label.innerHTML = "â–¼";
 				state = false;
 			}
 			else
 			{
 //				console.log("opening");
                 frame.classList.add('buttstrap_open');
-				label.innerHTML = "▲";
+				label.innerHTML = "â–²";
 				state = true;
 			}
 		};
@@ -1361,7 +1362,7 @@ var WikiGame = function()
 
 			label = document.createElement('div');
 			label.classList.add('buttstrap_label');
-			label.appendChild(document.createTextNode("▼"));
+			label.appendChild(document.createTextNode("â–¼"));
 			label.addEventListener('click',function(){buttstrap.toggle()},false);
             frame.appendChild(label);
 
